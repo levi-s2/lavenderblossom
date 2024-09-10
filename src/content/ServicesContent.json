@@ -1,0 +1,22 @@
+{
+    "title": "Our Services",
+    "text": "We offer a variety of cleaning services tailored to your needs.",
+    "section": [
+      {
+        "title": "Residential Cleaning",
+        "content": "From regular cleaning to deep cleaning, we ensure your home is spotless and refreshing.",
+        "icon": "residential.svg"
+      },
+      {
+        "title": "Commercial Cleaning",
+        "content": "Our team delivers efficient cleaning services for offices, ensuring a productive work environment.",
+        "icon": "commercial.svg"
+      },
+      {
+        "title": "Move-In/Move-Out Cleaning",
+        "content": "Perfect for those moving in or out, we ensure the place is clean and ready for its next chapter.",
+        "icon": "move.svg"
+      }
+    ]
+  }
+  

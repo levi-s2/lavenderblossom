@@ -1,16 +1,16 @@
 {
-  "title": "Light, fast & responsive",
-  "text": "This template is ready to use, so you don't need to change anything at a component level, unless you want to customize the default styling.",
+  "title": "About Lavender Blossom",
+  "text": "At Lavender Blossom, we pride ourselves on offering high-quality cleaning services that transform your space into a haven of tranquility. Whether it's residential or commercial, our attention to detail ensures a spotless environment you can trust.",
   "section": [
     {
-      "title": "Why Antd?",
-      "content": "Ant Design is a React UI library that has a lot of easy-to-use components for building elegant UI.",
-      "icon": "notes.svg"
+      "title": "Our Mission",
+      "content": "To provide reliable, professional cleaning services that prioritize customer satisfaction, using eco-friendly products and personalized care for every client.",
+      "icon": "mission.svg"
     },
     {
-      "title": "Why styled-components?",
-      "content": "Styled Components gives you total control over your components.",
-      "icon": "notes.svg"
+      "title": "Why Choose Us?",
+      "content": "Lavender Blossom offers tailored cleaning solutions for your unique needs, backed by a team of trained professionals dedicated to excellence.",
+      "icon": "why-us.svg"
     }
   ]
 }

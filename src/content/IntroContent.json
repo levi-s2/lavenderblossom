@@ -1,12 +1,12 @@
 {
-  "title": "Landing page template for developers & startups",
-  "text": "Beautifully designed templates using React.js, ant design and styled-components! Save weeks of time and build your landing page in minutes.",
+  "title": "Lavender Blossom: Your Trusted Cleaning Partner",
+  "text": "Providing top-notch residential and commercial cleaning services with a focus on attention to detail, efficiency, and client satisfaction.",
   "button": [
     {
-      "title": "Explore"
+      "title": "Schedule a Visit"
     },
     {
-      "title": "Learn more",
+      "title": "Learn More",
       "color": "#fff"
     }
   ]
