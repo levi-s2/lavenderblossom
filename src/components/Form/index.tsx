@@ -48,7 +48,7 @@ const Form: React.FC<FormProps> = ({ title, content, id }) => {
       emailjs
         .send(
           process.env.REACT_APP_EMAILJS_SERVICE_ID!,
-          "template_2zg26zt",
+          process.env.REACT_APP_EMAILJS_TEMPLATE_ID!,
           templateParams,
           process.env.REACT_APP_EMAILJS_USER_ID!
         )

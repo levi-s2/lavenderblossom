@@ -3,11 +3,18 @@ import { Link } from "react-router-dom";
 import { MenuOutlined } from "@ant-design/icons";
 
 export const HeaderSection = styled("header")`
-  padding: 1rem 0.5rem;
+  position: fixed; /* Keep the header fixed to the top */
+  top: 0;          /* Align it to the top of the viewport */
+  left: 0;
+  width: 100%;     /* Make sure it spans the full width of the page */
+  z-index: 1000;   /* Ensure it stays on top of other elements */
+  background-color: #fff; /* Adjust background color to fit the theme */
+  padding: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for styling */
 
-  .ant-row-space-between {
-    align-items: center;
-    text-align: center;
+  /* Make sure the content below doesn't overlap the header */
+  @media only screen and (max-width: 1024px) {
+    padding: 0.5rem 0;
   }
 `;
 

@@ -1,10 +1,7 @@
 import { Row, Col } from "antd";
 import { Fade } from "react-awesome-reveal";
-import { withTranslation } from "react-i18next";
-
 import { ContentBlockProps } from "./types";
 import { Button } from "../../common/Button";
-import { SvgIcon } from "../../common/SvgIcon";
 import {
   ContentSection,
   Content,
@@ -16,22 +13,30 @@ import {
   ButtonWrapper,
 } from "./styles";
 
+// Import the images (broom and hand GIFs)
+import broomGif from "./broom.gif";
+import handGif from "./hand.gif";
+
 const ContentBlock = ({
-  icon,
   title,
   content,
   section,
   button,
-  t,
   id,
   direction,
+  logoVersion, // New prop to choose the image version
 }: ContentBlockProps) => {
   const scrollTo = (id: string) => {
     const element = document.getElementById(id) as HTMLDivElement;
-    element.scrollIntoView({
-      behavior: "smooth",
-    });
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
   };
+
+  // Choose logo based on the passed prop
+  const logo = logoVersion === "hand" ? handGif : broomGif;
 
   return (
     <ContentSection>
@@ -43,15 +48,15 @@ const ContentBlock = ({
           direction={direction}
         >
           <Col lg={11} md={11} sm={12} xs={24}>
-            <SvgIcon src={icon} width="100%" height="100%" />
+            <img src={logo} alt="logo" width="100%" height="100%" />
           </Col>
           <Col lg={11} md={11} sm={11} xs={24}>
             <ContentWrapper>
-              <h6>{t(title)}</h6>
-              <Content>{t(content)}</Content>
+              <h6>{title}</h6>
+              <Content>{content}</Content>
               {direction === "right" ? (
                 <ButtonWrapper>
-                  {typeof button === "object" &&
+                  {button &&
                     button.map(
                       (
                         item: {
@@ -59,44 +64,38 @@ const ContentBlock = ({
                           title: string;
                         },
                         id: number
-                      ) => {
-                        return (
-                          <Button
-                            key={id}
-                            color={item.color}
-                            onClick={() => scrollTo("about")}
-                          >
-                            {t(item.title)}
-                          </Button>
-                        );
-                      }
+                      ) => (
+                        <Button
+                          key={id}
+                          color={item.color}
+                          onClick={() =>
+                            item.title === "Schedule a Visit"
+                              ? scrollTo("appointment")
+                              : scrollTo("about")
+                          }
+                        >
+                          {item.title}
+                        </Button>
+                      )
                     )}
                 </ButtonWrapper>
               ) : (
                 <ServiceWrapper>
                   <Row justify="space-between">
-                    {typeof section === "object" &&
+                    {section &&
                       section.map(
                         (
                           item: {
                             title: string;
                             content: string;
-                            icon: string;
                           },
                           id: number
-                        ) => {
-                          return (
-                            <Col key={id} span={11}>
-                              <SvgIcon
-                                src={item.icon}
-                                width="60px"
-                                height="60px"
-                              />
-                              <MinTitle>{t(item.title)}</MinTitle>
-                              <MinPara>{t(item.content)}</MinPara>
-                            </Col>
-                          );
-                        }
+                        ) => (
+                          <Col key={id} span={11}>
+                            <MinTitle>{item.title}</MinTitle>
+                            <MinPara>{item.content}</MinPara>
+                          </Col>
+                        )
                       )}
                   </Row>
                 </ServiceWrapper>
@@ -109,4 +108,4 @@ const ContentBlock = ({
   );
 };
 
-export default withTranslation()(ContentBlock);
+export default ContentBlock;

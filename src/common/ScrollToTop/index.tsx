@@ -23,12 +23,17 @@ const ScrollToTop = () => {
   }, [checkScrollTop]);
 
   const scrollUp = () => {
-    const element = document.getElementById("intro") as HTMLDivElement;
-    element.scrollIntoView({
-      behavior: "smooth",
-      block: "end",
-      inline: "nearest",
-    });
+    const element = document.getElementById("intro") as HTMLDivElement | null;
+    
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+        inline: "nearest",
+      });
+    } else {
+      console.warn("Element with ID 'intro' not found.");
+    }
   };
 
   return (

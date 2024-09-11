@@ -1,24 +1,9 @@
-import { TFunction } from "react-i18next";
 export interface ContentBlockProps {
-  icon: string;
   title: string;
   content: string;
-  section?: {
-    title: string;
-    content: string;
-    icon: string;
-  }[];
-  button?: (
-    | {
-        title: string;
-        color?: undefined;
-      }
-    | {
-        title: string;
-        color: string;
-      }
-  )[];
-  t: TFunction;
+  button?: { title: string; color?: string }[];
+  section?: { title: string; content: string }[]; // Remove the icon field
   id: string;
   direction: "left" | "right";
+  logoVersion?: "broom" | "hand"; // To select the correct logo
 }

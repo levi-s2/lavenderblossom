@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { Row, Col, Drawer } from "antd";
-import { withTranslation, TFunction } from "react-i18next";
 import Container from "../../common/Container";
-import { SvgIcon } from "../../common/SvgIcon";
 import {
   HeaderSection,
   LogoContainer,
@@ -15,49 +13,49 @@ import {
   Span,
 } from "./styles";
 
-const Header = ({ t }: { t: TFunction }) => {
+const Header = () => {
   const [visible, setVisibility] = useState(false);
 
   const toggleButton = () => {
     setVisibility(!visible);
   };
 
-  const MenuItem = () => {
-    const scrollTo = (id: string) => {
-      const element = document.getElementById(id) as HTMLDivElement;
+  const scrollTo = (id: string) => {
+    const element = document.getElementById(id) as HTMLDivElement;
+    if (element) {
       element.scrollIntoView({
         behavior: "smooth",
       });
-      setVisibility(false);
-    };
-
-    return (
-      <>
-        <CustomNavLinkSmall onClick={() => scrollTo("home")}>
-          <Span>{t("Home")}</Span>
-        </CustomNavLinkSmall>
-        <CustomNavLinkSmall onClick={() => scrollTo("about")}>
-          <Span>{t("About Us")}</Span>
-        </CustomNavLinkSmall>
-        <CustomNavLinkSmall onClick={() => scrollTo("services")}>
-          <Span>{t("Services")}</Span>
-        </CustomNavLinkSmall>
-        <CustomNavLinkSmall onClick={() => scrollTo("appointment")}>
-          <Span>{t("Appointment")}</Span>
-        </CustomNavLinkSmall>
-        <CustomNavLinkSmall onClick={() => scrollTo("contact")}>
-          <Span>{t("Contact Us")}</Span>
-        </CustomNavLinkSmall>
-      </>
-    );
+    }
+    setVisibility(false);
   };
+
+  const MenuItem = () => (
+    <>
+      <CustomNavLinkSmall onClick={() => scrollTo("home")}>
+        <Span>Home</Span>
+      </CustomNavLinkSmall>
+      <CustomNavLinkSmall onClick={() => scrollTo("about")}>
+        <Span>About Us</Span>
+      </CustomNavLinkSmall>
+      <CustomNavLinkSmall onClick={() => scrollTo("services")}>
+        <Span>Services</Span>
+      </CustomNavLinkSmall>
+      <CustomNavLinkSmall onClick={() => scrollTo("appointment")}>
+        <Span>Appointment</Span>
+      </CustomNavLinkSmall>
+      <CustomNavLinkSmall onClick={() => scrollTo("contact")}>
+        <Span>Contact Us</Span>
+      </CustomNavLinkSmall>
+    </>
+  );
 
   return (
     <HeaderSection>
       <Container>
         <Row justify="space-between">
           <LogoContainer to="/" aria-label="homepage">
-            <SvgIcon src="logo.svg" width="101px" height="64px" />
+            <img src={require("./logo.png")} alt="logo" width="210px" height="65px" />
           </LogoContainer>
           <NotHidden>
             <MenuItem />
@@ -84,4 +82,4 @@ const Header = ({ t }: { t: TFunction }) => {
   );
 };
 
-export default withTranslation()(Header);
+export default Header;
